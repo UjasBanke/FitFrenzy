@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="page-section">
+  <div class="card">
+    <h2>Edit Workout Entry</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <label>Date</label>
+      <input type="date" name="date" value="{{ workout.date|date:'Y-m-d' }}" required>
+
+      <label>Workout Type</label>
+      <input type="text" name="workout" value="{{ workout.workout }}" required>
+
+      <label>Duration (min)</label>
+      <input type="number" name="duration" value="{{ workout.duration }}" required>
+
+      <label>Calories Burned</label>
+      <input type="number" name="calories" value="{{ workout.calories }}" required>
+
+      <button type="submit" class="btn">Save Changes</button>
+      <a href="{% url 'workout_history' %}" class="btn outline">Cancel</a>
+    </form>
+  </div>
+</section>
+{% endblock %}

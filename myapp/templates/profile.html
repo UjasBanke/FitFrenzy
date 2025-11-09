@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="profile-section">
+  <div class="home-btn">
+  <a href="{% url 'home' %}" class="btn home">Home</a>
+</div>
+
+  <div class="profile-card">
+    <h1>My Profile</h1>
+
+    <form method="post">
+      {% csrf_token %}
+      <label>Date of Birth:</label>
+      <input type="date" name="dob" value="{{ profile.dob|date:'Y-m-d' }}">
+
+      <label>Height (cm):</label>
+      <input type="number" name="height_cm" value="{{ profile.height_cm }}">
+
+      <label>Weight (kg):</label>
+      <input type="number" name="weight_kg" value="{{ profile.weight_kg }}">
+
+      <button type="submit" class="btn">Save Changes</button>
+    </form> <br>
+
+    
+  </div>
+</section>
+{% endblock %}

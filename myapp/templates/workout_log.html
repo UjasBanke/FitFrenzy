@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="page-section">
+  <div class="home-btn">
+  <a href="{% url 'home' %}" class="btn home">Home</a>
+</div>
+  
+     <div class="workout-card">
+    <h1>Workout Log</h1>
+
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="workout" placeholder="Workout name" required>
+      <input type="number" name="duration" placeholder="Duration (minutes)" required>
+      <input type="number" name="calories" placeholder="Calories burned" required>
+      <button type="submit" class="btn">Add Workout</button>
+    </form><br>
+
+    <div class="form-links">
+      <a href="{% url 'workout_history' %}" class="btnw">View Logs</a>
+      <a href="{% url 'dashboard' %}" class="btnw">Back</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

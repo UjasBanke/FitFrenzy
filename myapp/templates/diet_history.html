@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="workout-history-section">
+  <div class="overlay">
+    <h2>Your Diet History</h2>
+
+    {% if diets %}
+      <table class="workout-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Meal</th>
+            <th>Food Item</th>
+            <th>Calories</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for d in diets %}
+          <tr>
+            <td>{{ d.date }}</td>
+            <td>{{ d.meal }}</td>
+            <td>{{ d.food_item }}</td>
+            <td>{{ d.calories }}</td>
+            <td class="action-buttons">
+              <a href="{% url 'edit_diet' d.id %}" class="edit-btn">Edit</a>
+              <a href="{% url 'delete_diet' d.id %}" class="delete-btn">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No diet entries yet.</p>
+    {% endif %}
+<br>
+<a href="{% url 'diet' %}" 
+   style="background: white; color: black; padding: 10px 20px; border-radius: 5px; 
+          text-decoration: none; font-weight: 600; display: inline-block; 
+          border: 2px solid white; transition: 0.3s;">
+   Back to Log
+</a>  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="register-section">
+  <div class="form-card">
+    <h1>Register</h1>
+
+    <form method="post" action="{% url 'register' %}">
+      {% csrf_token %}
+
+      <!-- USER INFO -->
+      <input type="text" name="first_name" placeholder="First Name" value="{{ form.first_name.value|default:'' }}" required>
+      <input type="text" name="last_name" placeholder="Last Name" value="{{ form.last_name.value|default:'' }}" required>
+      <input type="email" name="email" placeholder="Email Address" value="{{ form.email.value|default:'' }}" required>
+      <input type="text" name="username" placeholder="Username" value="{{ form.username.value|default:'' }}" required>
+
+      <!-- PASSWORDS -->
+      <input type="password" name="password" placeholder="Create Password" required>
+      <input type="password" name="password2" placeholder="Confirm Password" required>
+
+      <!-- PROFILE INFO -->
+      <input type="date" name="dob" placeholder="Date of Birth (YYYY-MM-DD)" value="{{ profile_form.dob.value|default:'' }}" required>
+      <input type="number" name="height_cm" placeholder="Height (cm)" value="{{ profile_form.height_cm.value|default:'' }}" required>
+      <input type="number" name="weight_kg" placeholder="Weight (kg)" value="{{ profile_form.weight_kg.value|default:'' }}" required>
+
+      <button type="submit" class="btn">Register</button>
+    </form>
+
+    <p class="switch">
+      Already have an account?
+      <a href="{% url 'login' %}">Login</a>
+    </p>
+
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color: #ffd54f;">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

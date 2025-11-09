@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="page-section">
+  <div class="card">
+    <h2>Edit Diet Entry</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <label>Date</label>
+      <input type="date" name="date" value="{{ diet.date|date:'Y-m-d' }}" required>
+
+      <label>Meal Type</label>
+      <input type="text" name="meal" value="{{ diet.meal }}" required>
+
+      <label>Food Item</label>
+      <input type="text" name="food_item" value="{{ diet.food_item }}" required>
+
+      <label>Calories</label>
+      <input type="number" name="calories" value="{{ diet.calories }}" required>
+
+      <button type="submit" class="btn">Save Changes</button>
+      <a href="{% url 'diet_history' %}" class="btn outline">Cancel</a>
+    </form>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workout Suggestions</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url("{% static 'images/registerbg.jpg' %}") center/cover no-repeat fixed;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      left: 40px;
+      z-index: 100;
+    }
+
+    .btn-home {
+      background: #111;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid #111;
+      transition: all 0.3s ease;
+    }
+
+    .btn-home:hover {
+      background: #fff;
+      color: #111;
+      transform: scale(1.08);
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.7);
+      width: 90%;
+      max-width: 1000px;
+      margin: 80px auto 40px;
+      border-radius: 10px;
+      padding: 40px;
+      overflow-y: auto;
+      max-height: 85vh;
+    }
+
+    select, button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #fff;
+      color: #111;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ffd54f;
+    }
+
+    .exercise {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      margin: 15px 0;
+      padding: 15px;
+      text-align: left;
+    }
+
+    .exercise img {
+      width: 200px;
+      border-radius: 8px;
+      display: block;
+      margin: 10px auto;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🏠 Home Button -->
+  <div class="home-btn">
+    <a href="{% url 'home' %}" class="btn-home">Home</a>
+  </div>
+
+  <div class="container">
+    <h1>🏋️ Workout Suggestions</h1>
+
+    <form method="post">
+      {% csrf_token %}
+      <select name="body_part" required>
+        <option value="">Select a body part</option>
+        {% for part in body_parts %}
+          <option value="{{ part }}">{{ part|title }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit">Get Workouts</button>
+    </form>
+
+    {% if error_message %}
+      <div class="error">{{ error_message }}</div>
+    {% endif %}
+
+    {% if exercises %}
+      {% for e in exercises %}
+        <div class="exercise">
+          <h3>{{ e.name|title }}</h3>
+          <p><b>Body Part:</b> {{ e.bodyPart|title }}</p>
+          <p><b>Equipment:</b> {{ e.equipment|title }}</p>
+          <img src="{{ e.gifUrl }}" alt="{{ e.name }}">
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</body>
+</html>

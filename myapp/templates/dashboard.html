@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="dashboard-section">
+  <div class="home-btn">
+  <a href="{% url 'home' %}" class="btn home">Home</a>
+</div>
+  <div class="dashboard-card">
+    <h1>Welcome, {{ user.username }}! 👋</h1>
+  
+    <div class="dashboard-buttons">
+      <a href="{% url 'workout' %}" class="btn">🏋️ Workout Log</a>
+      <a href="{% url 'diet' %}"  class="btn">🍎 Diet Log</a>
+      <a href="{% url 'progress' %}" class="btn">📊My Progress</a>
+      <a href="{% url 'bmi' %}" class="btn">⚖️ BMI Calculator</a>
+      <a href="{% url 'workout_suggestions' %}" class="btn"> 💪🏻Workout Suggestions</a>
+      <a href="{% url 'recommendations' %}" class="btn">🤖 Recommendations</a>
+    </div>
+
+    <a href="{% url 'logout' %}" class="btnlog">Logout</a>
+  </div>
+ 
+</section>
+{% endblock %}

@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  background: #f6f3f1;
+  color: #111;
+}
+
+/* HOME */
+.home-section {
+  display: flex;
+  height: 100vh;
+}
+
+.left {
+  flex: 1;
+  background: url('../images/home.jpg') center/cover no-repeat;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 80px;
+}
+
+.right h1 {
+  font-size: 120px;
+  line-height: 0.9;
+  font-weight: 900;
+}
+
+.right p {
+  font-size: 20px;
+  margin: 20px 0 40px;
+}
+
+/* BUTTONS */
+.admin-btn {
+  background: #000000;
+  color: #111;
+  border: none;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 10px 25px;
+  transition: 0.3s ease;
+}
+
+.admin-btn:hover {
+  background: #111;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+
+
+.btn {
+  background: #111;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn.outline {
+  background: white;
+  border: 2px solid #111;
+  color: #111;
+}
+
+.top-right-buttons {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  display: flex;
+  gap: 15px;
+  z-index: 10;
+}
+
+.top-right-buttons .btn.outline {
+  border: 2px solid #111;
+}
+
+.form-links .btnw {
+  display: inline-block;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 25px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.form-links .btnw:hover {
+  background: #fff;
+  color: #111;
+}
+
+
+.home-btn {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  z-index: 10;
+}
+
+.btn.home {
+  background: #111;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #111;
+}
+
+.btn.home:hover {
+  background: #fff;
+  color: #111;
+  transform: scale(1.08);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  font-weight: bold;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: 0.2s;
+  color: #fff;
+}
+
+.edit-btn {
+  background: #4caf50;
+}
+
+.delete-btn {
+  background: #f44336;
+}
+
+.edit-btn:hover {
+  background: #43a047;
+}
+
+.delete-btn:hover {
+  background: #e53935;
+}
+
+
+
+/* BACKGROUNDS */
+.register-section {
+  background: url('../images/registerbg.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+}
+
+
+.login-section,
+.profile-section,
+.dashboard-section,
+.page-section,
+.workout-section,
+.workout-history-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url('../images/profilebg.jpg') center/cover no-repeat;
+  color: #fff;
+}
+
+/* CARDS */
+.form-card,
+.profile-card,
+.dashboard-card,
+.workout-card {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px 40px;
+  border-radius: 8px;
+  width: 350px;
+  text-align: center;
+}
+
+.form-card h1,
+.profile-card h1,
+.workout-card h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+/* DASHBOARD */
+.dashboard-card {
+  width: 450px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 50px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-buttons .btn {
+  background: #ffffff;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.dashboard-card .btnlog {
+  background: #ffffff;
+  color: #000000;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+
+
+/*  WORKOUT TABLE */
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  max-width: 1200px;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.workout-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.workout-table th,
+.workout-table td {
+  padding: 14px 16px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.workout-table th {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.workout-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.workout-table tr:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

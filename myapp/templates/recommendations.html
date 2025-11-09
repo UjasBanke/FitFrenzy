@@ -1,0 +1,216 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommendations</title>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url("{% static 'images/registerbg.jpg' %}") no-repeat center center fixed;
+      background-size: cover; 
+      background-color: #000;
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* --- Home Button --- */
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      left: 40px;
+      z-index: 100;
+    }
+
+    .btn-home {
+      background: #111;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid #111;
+      transition: all 0.3s ease;
+    }
+
+    .btn-home:hover {
+      background: #fff;
+      color: #111;
+      transform: scale(1.08);
+    }
+
+    /* --- Main Card --- */
+    .recommend-card {
+      background: rgba(0, 0, 0, 0.65);
+      width: 85%;
+      max-width: 1000px;
+      margin: 100px auto 60px; /* ✅ starts closer to the top */
+      padding: 50px 60px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff;
+      font-size: 42px;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      color: #ffffff;
+      font-size: 24px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      border-left: 4px solid #ffffff;
+      padding-left: 12px;
+      text-transform: uppercase;
+    }
+
+    p, li {
+      font-size: 16px;
+      color: #fff;
+    }
+
+    ul {
+      margin-left: 25px;
+      margin-bottom: 20px;
+    }
+
+    li::marker {
+      color: #ffffff;
+    }
+
+    b {
+      color: #fff;
+    }
+
+    /* --- Links --- */
+    a.link {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    a.link::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #ffffff;
+      transition: width 0.3s ease;
+    }
+
+    a.link:hover::after {
+      width: 100%;
+    }
+
+    a.link:hover {
+      color: #fff;
+    }
+
+    /* --- Section Divider --- */
+    .divider {
+      height: 2px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 40px 0;
+      border-radius: 2px;
+    }
+
+    /* --- Animation --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .recommend-card {
+        width: 90%;
+        padding: 30px 25px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Home Button -->
+  <div class="home-btn">
+    <a href="{% url 'home' %}" class="btn-home">Home</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="recommend-card">
+    <h1>Helpful Recommendations</h1>
+
+    <h2>🍎 Comprehensive Nutrition Guide</h2>
+    <p>Nutrition is the foundation of physical and mental performance. A balanced diet helps maintain energy, supports recovery, and improves overall well-being. Below are key nutritional principles for sustainable health:</p>
+
+    <ul>
+      <li><b>Protein (30–35% of diet):</b> Builds and repairs tissues, essential for muscle recovery. Aim for 1.2–2g per kg body weight. Best sources — eggs, fish, chicken, soy, paneer, and lentils.</li><br>
+      <li><b>Carbohydrates (40–50%):</b> Your body’s main fuel. Prefer complex carbs like oats, brown rice, and fruits for steady energy and better digestion.</li><br>
+      <li><b>Fats (20–30%):</b> Vital for brain health and hormone balance. Include nuts, seeds, olive oil, and avocados.</li><br>
+      <li><b>Hydration:</b> Drink 2.5–3 liters of water daily; include coconut water or electrolyte drinks during workouts.</li><br>
+      <li><b>Micronutrients:</b> Vitamins A, C, D, E, and K, plus minerals like calcium and magnesium, are crucial for metabolism and immunity. Eat colorful vegetables and fruits daily.</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>🏋️‍♂️ Workout Science</h2>
+    <p>Effective exercise is not about duration, but consistency and structure. The right workout plan depends on your goals — strength, endurance, or general fitness.</p>
+
+    <ul>
+      <li><b>Strength Training:</b> Perform compound exercises (squats, push-ups, rows) 3–4 days/week. Gradually increase weights or resistance to build muscle safely.</li>
+      <li><b>Cardio:</b> 2–3 days/week of running, cycling, or swimming boosts heart health and burns fat efficiently.</li>
+      <li><b>HIIT (High-Intensity Interval Training):</b> Ideal for fat loss — short bursts of effort with rest intervals.</li>
+      <li><b>Mobility & Flexibility:</b> Stretching, yoga, and foam rolling improve posture and reduce injury risk.</li>
+      <li><b>Rest Days:</b> Muscles grow during recovery. Take 1–2 rest days weekly with light activity (like walking).</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>🧘‍♀️ Lifestyle & Recovery</h2>
+    <p>Optimal health isn’t built in the gym — it’s built in your habits. Small, consistent lifestyle improvements make the biggest difference.</p>
+
+    <ul>
+      <li><b>Sleep:</b> 7–8 hours/night improves muscle recovery, hormonal balance, and focus.</li>
+      <li><b>Stress Management:</b> Try meditation, deep breathing, or short nature walks to regulate stress hormones.</li>
+      <li><b>Posture Awareness:</b> Maintain ergonomic sitting and standing positions to prevent spinal issues.</li>
+      <li><b>Consistency:</b> Track your workouts and meals weekly; progress comes from discipline, not perfection.</li>
+      <li><b>Mindset:</b> Focus on long-term wellness rather than temporary results — sustainability is key.</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>🔗 Trusted Resources</h2>
+    <ul>
+      <li><a href="https://www.healthline.com/nutrition" class="link" target="_blank">Healthline – Nutrition Research & Tips</a></li>
+      <li><a href="https://examine.com/" class="link" target="_blank">Examine.com – Science-Based Supplement Info</a></li>
+      <li><a href="https://www.bodybuilding.com/" class="link" target="_blank">Bodybuilding.com – Workout Programs</a></li>
+      <li><a href="https://www.muscleandstrength.com/" class="link" target="_blank">Muscle & Strength – Diet & Exercise Articles</a></li>
+      <li><a href="https://www.yogajournal.com/" class="link" target="_blank">Yoga Journal – Mindfulness & Mobility</a></li>
+    </ul>
+  </div>
+</body>
+</html>

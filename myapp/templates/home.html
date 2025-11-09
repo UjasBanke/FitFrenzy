@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="home-section">
+  <div class="left"></div>
+  <div class="right">
+    <h1>Fit<br>Frenzy</h1>
+    <p>Fuel your Fitness, feel the Frenzy</p>
+    <div class="buttons">
+      <a href="{% url 'register' %}" class="btn">Register Now</a>
+      <a href="{% url 'login' %}" class="btn outline">Login</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

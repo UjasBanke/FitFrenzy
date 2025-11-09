@@ -1,0 +1,138 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  
+  <style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: url("{% static 'images/profilebg.jpg' %}") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    font-weight: 700;
+    position: relative;
+  }
+
+  /* --- Home Button --- */
+  .home-btn {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    z-index: 10;
+  }
+
+  .btn-home {
+    background: #111;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid #111;
+    transition: all 0.3s ease;
+  }
+
+  .btn-home:hover {
+    background: #fff;
+    color: #111;
+    transform: scale(1.08);
+  }
+
+  .bmi-card {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 400px;
+  }
+
+  input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+
+  button {
+    background: #111;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background: #fff;
+    color: #111;
+    transform: scale(1.05);
+  }
+
+  .result {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+
+  .category {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #ffd54f;
+  }
+
+  .btn-outline {
+    margin-top: 15px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    background: #fff;
+    color: #111;
+  }
+  </style>
+</head>
+
+<body>
+  <!-- Home Button -->
+  <div class="home-btn">
+    <a href="{% url 'home' %}" class="btn-home">Home</a>
+  </div>
+
+  <div class="bmi-card">
+    <h1>BMI Calculator</h1>
+    <form method="post">
+      {% csrf_token %}
+      <input type="number" name="height" placeholder="Height (cm)" step="0.1" required><br>
+      <input type="number" name="weight" placeholder="Weight (kg)" step="0.1" required><br>
+      <button type="submit">Calculate</button>
+    </form>
+
+    {% if bmi %}
+      <div class="result">Your BMI: {{ bmi }}</div>
+      {% if category %}
+        <div class="category">Category: {{ category }}</div>
+      {% endif %}
+    {% endif %}
+
+    <a href="{% url 'dashboard' %}" class="btn-outline">Back</a>
+  </div>
+</body>
+</html>
