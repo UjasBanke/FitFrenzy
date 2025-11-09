@@ -31,11 +31,9 @@ urlpatterns = [
     path('diet/edit/<int:diet_id>/', views.edit_diet_view, name='edit_diet'),
     path('diet/delete/<int:diet_id>/', views.delete_diet_view, name='delete_diet'),
 
-    
-
    #API
-
-path('workout/suggestions/', views.workout_suggestions_view, name='workout_suggestions'),
+ 
+   path('workout/suggestions/', views.workout_suggestions_view, name='workout_suggestions'),
 
 
 
