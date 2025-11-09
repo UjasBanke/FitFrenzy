@@ -1,0 +1,15 @@
+# --- Prioritize Python ---
+*.py linguist-weight=3
+
+# --- Reduce weight of frontend files ---
+*.html linguist-weight=0.5
+*.css linguist-weight=0.5
+*.js linguist-weight=0.5
+
+# --- Ignore non-code files ---
+*.png linguist-detectable=false
+*.jpg linguist-detectable=false
+*.jpeg linguist-detectable=false
+*.gif linguist-detectable=false
+*.svg linguist-detectable=false
+*.ico linguist-detectable=false
