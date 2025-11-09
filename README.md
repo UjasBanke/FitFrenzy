@@ -107,3 +107,8 @@ Personalized diet & workout recommendations via AI.
 Voice-enabled chatbot for instant guidance.
 
 Community workout challenges.
+
+
+
+<img width="1901" height="907" alt="image" src="https://github.com/user-attachments/assets/0cc623d5-7aac-4b84-ae52-738303dfba5a" />
+
