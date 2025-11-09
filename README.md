@@ -15,7 +15,7 @@ It empowers users to monitor their workouts, diet, progress, and BMI — all in 
 ### 🏋️ Workout Tracking
 - Add, edit, or delete workout logs.
 - **Workout suggestions API** integrated (ExerciseDB).
-- Displays exercise details and (optionally) GIF animations.
+- Displays exercise details 
 
 ### 🍎 Diet Logging
 - Track daily meals with calorie information.
